@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Create Bill</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-section">
+                <label for="supplier_name">Supplier Name</label>
+                {{ form.supplier_name }}
+            </div>
+
+            <div class="form-section">
+                <label for="item_name">Item Name</label>
+                {{ form.item_name }}
+            </div>
+
+            <div class="form-section">
+                <label for="payment_method">Payment Method</label>
+                <div class="radio-group">
+                    {{ form.payment_method }}
+                </div>
+            </div>
+
+            <div class="form-section">
+                <label for="customer_name">Customer Name</label>
+                {{ form.customer_name }}
+            </div>
+
+            <div class="form-section">
+                <label for="number_of_products">Number of Products</label>
+                {{ form.number_of_products }}
+            </div>
+
+            <div class="form-section">
+                <label for="weight_in_kg">Weight (kg)</label>
+                {{ form.weight_in_kg }}
+            </div>
+
+            <div class="form-section">
+                <label for="rate">Rate (per item/kg)</label>
+                {{ form.rate }}
+            </div>
+
+            <button type="submit">Submit Bill</button>
+        </form>
+    </div>
+</body>
+</html>
